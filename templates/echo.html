@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Echo the text: {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+
+<form action="/echo" method="post">
+    <input type="text" autocomplete="off" name="text" placeholder="What should I echo?">
+
+    <button type="submit">Echo!</button>
+</form>
+
+{% if echo %}
+    {{echo|safe}}
+{% endif %}
+
+{% endblock %}
